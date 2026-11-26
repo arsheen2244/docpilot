@@ -1,6 +1,6 @@
 # Optional backends (none were installed/run when this repo was generated)
 -r requirements.txt
-sentence-transformers>=3.0     # DOCPILOT_EMBEDDER=st  (real dense embeddings + cross-encoder rerank)
+sentence-transformers>=6.3.0     # DOCPILOT_EMBEDDER=st  (real dense embeddings + cross-encoder rerank)
 qdrant-client>=1.9             # DOCPILOT_STORE=qdrant
 psycopg[binary]>=3.1           # DOCPILOT_STORE=pgvector
 wandb>=0.17                    # DOCPILOT_WANDB=1
