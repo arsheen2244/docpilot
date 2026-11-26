@@ -43,11 +43,11 @@ def build_tiers(settings: Settings) -> dict:
 class DocPilot:
     def __init__(self, settings: Settings | None = None, agent_config: AgentConfig | None = None,
                  corpus_dir: str | None = None, chunker: str | None = None, tiers: dict | None = None,
-                 cache: bool = True):
+                 cache: bool | None = None):
         self.settings = settings or Settings()
         self.retriever, self.chunks = build_retriever(self.settings, corpus_dir, chunker)
         self.gateway = Gateway(tiers or build_tiers(self.settings), embedder=self.retriever.embedder,
-                               cache=cache)
+                               cache=self.settings.cache if cache is None else cache)
         self.tracer = Tracer(self.settings.trace_path or None)
         self.agent = DocPilotAgent(self.retriever, self.gateway, self.tracer, agent_config)
 

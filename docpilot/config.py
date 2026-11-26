@@ -30,4 +30,5 @@ class Settings:
         default_factory=lambda: [k for k in _env("API_KEYS").split(",") if k.strip()]
     )
     rate_per_min: int = field(default_factory=lambda: int(_env("RATE_PER_MIN", "30")))
+    cache: bool = field(default_factory=lambda: _env("CACHE", "1") != "0")  # semantic LLM cache
     trace_path: str = field(default_factory=lambda: _env("TRACE_PATH", "results/traces.jsonl"))
