@@ -1,0 +1,26 @@
+{
+  "n_answerable": 28,
+  "n_unanswerable": 4,
+  "answer_rate": 0.7142857142857143,
+  "false_abstain_rate": 0.2857142857142857,
+  "cites_gold_given_answered": 1.0,
+  "all_cites_gold_given_answered": 1.0,
+  "correct_abstention_rate": 1.0,
+  "avg_steps": 6.9375,
+  "latency_ms_p50": 3.0614999999999997,
+  "latency_ms_p95": 7.225399999999997,
+  "gateway": {
+    "requests": 34,
+    "cache_hits": 0,
+    "fallbacks": 0,
+    "cost_usd": 0.00998715,
+    "saved_usd": 0.0,
+    "tokens_in": 5844,
+    "tokens_out": 767,
+    "by_tier": {
+      "small": 26,
+      "large": 8
+    }
+  },
+  "small_tier_share": 0.6
+}

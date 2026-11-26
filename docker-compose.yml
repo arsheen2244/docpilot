@@ -1,0 +1,22 @@
+# docker compose up --build            -> app with in-memory store
+# docker compose --profile qdrant up   -> app wired to Qdrant   (needs requirements-full deps in the image)
+services:
+  app:
+    build: .
+    ports: ["8080:8080"]
+    environment:
+      DOCPILOT_API_KEYS: ${DOCPILOT_API_KEYS:-}
+      DOCPILOT_STORE: ${DOCPILOT_STORE:-memory}
+      DOCPILOT_QDRANT_URL: http://qdrant:6333
+      DOCPILOT_PG_DSN: postgresql://postgres:postgres@pg:5432/docpilot
+      DOCPILOT_LLM_BASE_URL: ${DOCPILOT_LLM_BASE_URL:-}
+      DOCPILOT_SMALL_MODEL: ${DOCPILOT_SMALL_MODEL:-}
+  qdrant:
+    image: qdrant/qdrant:latest
+    profiles: ["qdrant"]
+    ports: ["6333:6333"]
+  pg:
+    image: pgvector/pgvector:pg16
+    profiles: ["pgvector"]
+    environment: {POSTGRES_PASSWORD: postgres, POSTGRES_DB: docpilot}
+    ports: ["5432:5432"]

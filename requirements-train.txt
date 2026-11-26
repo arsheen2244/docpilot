@@ -1,0 +1,7 @@
+# For training/dpo_train.py: pin to the versions you actually test with.
+torch
+transformers
+datasets
+peft
+trl
+wandb
