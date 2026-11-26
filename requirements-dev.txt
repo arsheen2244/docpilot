@@ -1,4 +1,4 @@
 -r requirements.txt
 pytest>=8
 httpx2>=2.0      # Starlette >=1.10 TestClient uses httpx2; plain httpx is deprecated there
-httpx>=0.27      # fallback for older Starlette versions
+httpx>=0.28.1      # fallback for older Starlette versions
